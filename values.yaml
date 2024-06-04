@@ -792,6 +792,13 @@ database:
   # If it <= 0, then there is no limit on the number of open connections.
   # Note: the default number of connections is 1024 for postgre of harbor.
   maxOpenConns: 900
+  # The maximum amount of time a connection may be reused in seconds
+  #(core+exporter).Default is (5 minutes on exporter and 1h on core as per pgx defaults)
+  connMaxLifetime: 1h
+  # The maximum amount of time a connection can be idle before being closed in seconds (core+exporter).
+  # Default is (core as per pgx default 30 minutes and exporter 0)
+  connMaxIdleTime: 30m
+
   ## Additional deployment annotations
   podAnnotations: {}
   ## Additional deployment labels
